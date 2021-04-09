@@ -1,0 +1,39 @@
+﻿
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>DefaultError</title>
+    <link href="~/assets/css/main.css" rel="stylesheet" />
+</head>
+<body>
+    <div class="container">
+        <div class="row text-center">
+            <form  role="form" action="@Url.Action("Logout", "Seguridad")">
+
+                <div class="pos-a t-0 l-0 bgc-white w-100 h-100 d-f fxd-r fxw-w ai-c jc-c pos-r p-30">
+                    <div class="mR-60">
+                        <img src="~/assets/images/error/error500.jpg" style="max-width:400px;"/>
+                    </div>
+                    <div class="d-f jc-c fxd-c">
+                        <h1 class="mB-30 fw-900 lh-1 c-red-500" style="font-size:60px">500</h1>
+                        <h3 class="mB-10 fsz-lg c-grey-900 tt-c">Error de servidor interno</h3>
+                        <p class="mB-30 fsz-def c-grey-700"> Algo sale mal con nuestros servidores. Vuelve a intentarlo más tarde.</p>
+                        <div>
+                            <button type="submit" class="btn btn-primary">Ingresar al sistema</button>
+                        </div>
+
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <script src="~/assets/scripts/js/bootstrap.min.js"></script>
+</body>
+</html>

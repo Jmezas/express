@@ -1,0 +1,206 @@
+﻿
+@{
+    ViewBag.Title = "CreateEmpresa";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+<div class="row">
+    <div class="col-12">
+        <h4>
+            <i style="margin-right:7px" class="fa fa-users"></i>  Crear Empresa
+        </h4>
+    </div>
+    <nav class="col-12" aria-label="breadcrumb">
+        <ol class="breadcrumb">
+            <li class="breadcrumb-item"><i class="fa fa-home"></i> <a href="@Url.Action("Principal", "Seguridad")">Principal</a></li>
+            <li class="breadcrumb-item active" aria-current="page"><i class="fa fa-users"></i> Crear Empresa </li>
+        </ol>
+    </nav>
+</div>
+@using (Html.BeginForm("Adjuntar", "Mantenimiento", FormMethod.Post, new { id = "frm-adjuntar" }))
+{
+    <div class="row" id="dvRegistro">
+        <div class="col-lg-7">
+            <div class="main-card mb-3 card">
+                <div class="card-body">
+                    <div class="form-row">
+                        <input type="hidden" id="hdfId" value="@ViewBag.IdEmpresa" />
+                        <div class="col-lg-12 col-12">
+                            <label>Ruc  <b class="obl"> (*)</b></label>
+                            <div class="form-group">
+                                <div class="input-group">
+                                    <input type="text" class="form-control" id="txtDocumento" name="txtDocumento">
+                                    <div class="input-group-append">
+                                        <button id="btnbuscar" type="button" class="btn btn-outline-secondary"><i class="fa fa-plus-circle"></i> </button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-12">
+                            <label>Razon Social  <b class="obl"> (*)</b></label>
+                            <div class="form-group"> 
+                                <input type="text" class="form-control input-sm no-null" id="txtRazon" name="txtRazon">
+                                <div class="invalid-feedback">
+                                    Llene el campo
+                                </div> 
+                            </div>
+                        </div>
+                        <div class="col-lg-12">
+                            <label>Direccion  <b class="obl"> (*)</b></label>
+                            <div class="form-group">
+
+                                <input type="text" class="form-control input-sm no-nulll" id="txtDireccion" name="txtDireccion">
+
+                            </div>
+                        </div>
+                        <div class="col-lg-6">
+                            <label>Correo <b class="obl"> (*)</b></label>
+                            <div class="form-group">
+                                <div class="input-group">
+                                    <input type="text" class="form-control input-sm no-null" id="txtCorreo" name="txtCorreo">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-6">
+                            <label>Contraseña Correro <b class="obl"> (*)</b></label>
+                            <div class="form-group">
+                                <div class="input-group">
+                                    <input type="password" class="form-control input-sm no-null" id="txtPass" name="txtPass" />
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-6">
+                            <label>Telefono </label>
+                            <div class="form-group">
+                                <div class="input-group">
+                                    <input type="text" class="form-control" id="txtTelefono" name="txtTelefono" />
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-6">
+                            <label>Celular</label>
+                            <div class="form-group">
+                                <div class="input-group">
+                                    <input type="text" class="form-control" id="txtCelular" name="txtCelular">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-12">
+
+                            <div class="form-group">
+
+                                <div class="input-group">
+                                    <img id="imgSalida" class="rounded-circle" width="30%" height="30%" src="" />
+                                </div>
+                                <div class="input-group">
+                                    <input type="hidden" id="hdfImagen" />
+                                    <input type="hidden" id="hdfImg" />
+                                    <label>Subir foto</label>
+
+                                    <input type="file" class="form-control-file" name="Logo" id="Logo">
+                                    <label id="imagen"></label>
+                                </div>
+                            </div>
+
+                        </div>
+
+                        <div class="col-lg-4 col-12">
+                            <label>Departamento <b class="obl"> (*)</b></label>
+                            <div class="form-group">
+                                <select class="form-control" style="width: 100%" id="lstDepartamento" name="lstDepartamento"> </select>
+                            </div>
+                        </div>
+                        <div class="col-lg-4 col-12">
+                            <label>Provincia <b class="obl"> (*)</b></label>
+                            <div class="form-group">
+                                <div class="input-group">
+                                    <select type="text" class="form-control" id="lstProvincia" name="lstProvincia"></select>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-4 col-12">
+                            <label>Distrito <b class="obl"> (*)</b></label>
+                            <div class="form-group">
+                                <div class="input-group">
+                                    <select type="text" class="form-control" id="lstDistrito" name="lstDistrito"></select>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-12 col-12">
+                            <label>Pagina web</label>
+                            <div class="form-group">
+                                <input class="form-control" style="width: 100%" id="txtPagina" name="txtPagina">
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-5">
+            <div class="main-card mb-3 card">
+                <div class="card-body">
+
+                    <h6 class="c-grey-900">datos de usuario SUNAT</h6>
+                    <hr />
+                    <div class="form-row">
+
+                        <div class="col-lg-6 col-md-6 col-sm-6 col-12">
+                            <div class="form-group">
+
+                                <label>Usuario<b class="obl"> (*)</b></label>
+                                <input type="text" id="txtUsuario" name="txtUsuario" class="form-control input-sm no-null">
+                            </div>
+                        </div>
+                        <div class="col-lg-6 col-md-6 col-sm-6 col-12">
+                            <div class="form-group">
+                                <label>Clave sol<b class="obl"> (*)</b></label>
+                                <input type="password" id="txtClaveSol" name="txtClaveSol" class="form-control  input-sm no-null">
+                            </div>
+                        </div>
+
+                        <div class="col-lg-12 ">
+                            <div class="form-group">
+
+                                <label>Certificado<b class="obl"> (*)</b></label>
+
+                                <div class="input-group">
+                                    <input type="hidden" id="hdfImagenCertificado" />
+                                    <input type="hidden" id="hdfImgCertificado" />
+                                  
+
+                                    <input type="file" class="form-control-file" name="Certificado" id="Certificado">
+                                    <label id="imagenCertificado"></label>
+                                </div>
+
+
+                            </div>
+                        </div>
+
+                        <div class="col-lg-6 col-md-6 col-sm-6 col-12">
+                            <div class="form-group">
+                                <label>Clave Certificado<b class="obl"> (*)</b></label>
+                                <input type="password" id="txtClaveCertificado" name="txtClaveCertificado input-sm no-null" class="form-control ">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+}
+<div class="row">
+    <div class="col-md-12">
+        <div class="col-lg-12">
+            <div class="form-group pull-right">
+                <button class="btn btn-success  btn-lg" id="btnGuardar"><i class="fa fa-save"></i> Guardar</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section scripts {
+    <script type="text/javascript" src="~/assets/scripts/page/Mantenimiento/CreateEmpresa.js"></script>
+}

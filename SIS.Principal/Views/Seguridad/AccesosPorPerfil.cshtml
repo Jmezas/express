@@ -1,0 +1,181 @@
+﻿@using SIS.Entity
+@{
+    ViewBag.Title = "AccesosPorPerfil";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+
+<div class="row">
+    <div class="col-12">
+        <h4>
+            <i style="margin-right:7px" class="fa fa-users"></i>ACCESO DE PERFIL
+        </h4>
+    </div>
+    <nav class="col-12" aria-label="breadcrumb">
+        <ol class="breadcrumb">
+            <li class="breadcrumb-item"><i class="fa fa-home"></i> <a href="@Url.Action("Principal", "Seguridad")">Principal</a></li>
+            <li class="breadcrumb-item"><i class="fa fa-home"></i> <a href="@Url.Action("Perfiles", "Seguridad")">Lista Perfil</a></li>
+            <li class="breadcrumb-item active" aria-current="page"><i class="fa fa-users"></i> Acceso por Perfiles</li>
+        </ol>
+    </nav>
+</div>
+<div class="row">
+    <div class="col-12">
+        <div class="row">
+            <div class="col-lg-6 col-sm-6 col-12">
+                <div class="form-group">
+                    <input type="hidden" id="id" value="@ViewBag.Perfil.Id" />
+                    <label>Nombre del Perfil</label>
+                    <input class="form-control" disabled name="nombre" value="@ViewBag.Perfil.NombrePerfil">
+                </div>
+
+
+            </div>
+
+            <div class="col-lg-6 col-sm-6 col-12">
+                <div class="float-right">
+                    <br />
+                    <button class="btn btn-success" data-toggle="modal" data-target="#confirmar"><i class="fa fa-save"></i> Guardar</button>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>
+<br />
+
+
+
+<div class="card cont">
+
+    <div class="row" id="container">
+
+        <ul>
+            @foreach (EMenu oMenu in ViewBag.MenuPerfil)
+            {
+                if (oMenu.Padre.Id == -1)
+                {
+                    <li id=@oMenu.Id>
+                        <a href="javascript:void(0);" class="dropdown-toggle" data-toggle="dropdown">
+                            @oMenu.Nombre
+                        </a>
+                        @if ((ViewBag.MenuPerfil as List<EMenu>).Where(M => M.Padre.Id == oMenu.Id).ToList().Count > 0)
+                        {
+                            <ul>
+                                @foreach (EMenu oHijo in (ViewBag.MenuPerfil as List<EMenu>).Where(M => M.Padre.Id == oMenu.Id))
+                                {
+                                    <li id=@oHijo.Id @((oHijo.TieneAcceso == true && (ViewBag.MenuPerfil as List<EMenu>).Where(M => M.Padre.Id == oHijo.Id).Count() <= 0) ? "data-checkstate=checked" : "")>
+                                        <a href="@((ViewBag.MenuPerfil as List<EMenu>).Where(M => M.Padre.Id == oHijo.Id).ToList().Count == 0 ? Url.Action(oHijo.Vista, oHijo.Controlador) : "javascript:void(0)")"> @oHijo.Nombre</a>
+                                        @if ((ViewBag.MenuPerfil as List<EMenu>).Where(M => M.Padre.Id == oHijo.Id).ToList().Count > 0)
+                                        {
+                                            <ul>
+                                                @foreach (EMenu oNieto in (ViewBag.MenuPerfil as List<EMenu>).Where(M => M.Padre.Id == oHijo.Id))
+                                                {
+                                                    <li id=@oNieto.Id @(oNieto.TieneAcceso == true ? "data-checkstate=checked" : "")>
+                                                        <a href="@Url.Action(oNieto.Vista, oNieto.Controlador)">@oNieto.Nombre</a>
+                                                    </li>
+                                                }
+                                            </ul>
+                                        }
+                                    </li>
+                                }
+                            </ul>
+                        }
+                    </li>
+                }
+            }
+        </ul>
+    </div>
+
+
+
+</div>
+<div class="modal fade" id="confirmar" tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Confirmación</h5>
+                <input type="hidden" id="IdProv" />
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <input type="hidden" id="IdProyecto" />
+            <div class="modal-body">
+                <label>¿Seguro(a) que desea guardar los cambios? </label>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal" id="cerrarpx">NO</button>
+                <button type="submit" class="btn btn-primary" onclick="guardarPerfiles();">SI</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+@section scripts {
+    <script type="text/javascript">
+
+        var tree = $("#container");
+        var nodesOnSelectedPath;
+
+        tree.jstree({
+            plugins: ["checkbox"],
+            core: {
+                "themes": {
+                    "icons": false
+                }
+            }
+        });
+        tree.jstree(true).open_all();
+        $('li[data-checkstate="checked"]').each(function () {
+            tree.jstree('check_node', $(this));
+        });
+
+        tree.jstree(true).close_all();
+
+
+        tree.on('changed.jstree', function (e, data) {
+            var i, j, r = [];
+            nodesOnSelectedPath = [...data.selected.reduce(function (acc, nodeId) {
+                var node = data.instance.get_node(nodeId);
+               // console.log(node.parents);
+                return new Set([...acc, ...node.parents, node.id]);
+            }, new Set)];
+        });
+
+        function guardarPerfiles() {
+            var IdPerfil = $('#id').val();
+            var Menus = nodesOnSelectedPath.join(',').replace('#,', '');
+
+           // console.log(IdPerfil);
+            //console.log(Menus);
+            console.log('Selected: ' + nodesOnSelectedPath.join(',').replace('#,', ''));
+
+            var oPerfil = {
+                Id: IdPerfil,
+                Menus: Menus
+            };
+          //  console.log(oPerfil);
+
+            $.ajax({
+                async: true,
+                type: 'post',
+                url: General.Utils.ContextPath('Seguridad/ActualizarAccesosPorPerfil'),
+                dataType: 'json',
+                data: { Id: IdPerfil, Menus: Menus },
+                success: function (response) {
+                   // console.log(response);
+                    if (!response.hasOwnProperty('ErrorMessage')) { // Si la petición no emitió error
+                        var sMensajeFinal = response["Message"];
+                        General.Utils.Redirect('Seguridad', 'Perfiles');
+                    } else {
+                        General.Utils.ShowMessageRequest(response);
+                    }
+                }
+            })
+        }
+
+    </script>
+}

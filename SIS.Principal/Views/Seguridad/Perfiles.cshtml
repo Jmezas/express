@@ -1,0 +1,81 @@
+﻿
+@{
+    ViewBag.Title = "Perfil";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+<div class="row">
+    <div class="col-12">
+        <h4>
+            <i style="margin-right:7px" class="fa fa-users"></i> LISTA DE PERFILES
+        </h4>
+    </div>
+    <nav class="col-12" aria-label="breadcrumb">
+        <ol class="breadcrumb">
+            <li class="breadcrumb-item"><i class="fa fa-home"></i> <a href="@Url.Action("Principal", "Seguridad")">Principal</a></li>
+            <li class="breadcrumb-item active" aria-current="page"><i class="fa fa-users"></i> Perfil</li>
+        </ol>
+    </nav>
+</div>
+<div class="row">
+    <div class="col-12">
+        <div class="form-group pull-right">
+            <button class="btn btn-info" id="btnNuevo" data-toggle="modal" data-target="#ModalNuevo"><i class="fa fa-plus"></i> Nuevo Perfil</button>
+        </div>
+    </div>
+</div>
+
+<div class="card cont">
+    <div class="table-responsive-sm table-responsive-md" id="dvCliente">
+        <table class="mb-0 table table-hover" cellspacing="0" style="width:100%" id="tbPerfiles">
+            <thead>
+                <tr>
+                    <th>Nombre del Perfil de Usuario</th>
+                    <th>Acciones</th>
+                </tr>
+            </thead>
+            <tbody></tbody>
+        </table>
+    </div>
+
+    @*------- MODAL --------------*@
+    <div class="modal fade" id="ModalNuevo" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-lg" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <input type="hidden" id="hdfPerfil" />
+                    <h5 class="modal-title" id="exampleModalLongTitle"> Perfil</h5>
+                    <button type="button" class="close" id="btnCerrar" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <div class="row">
+                        <div class="col-lg-6 col-md-6 col-sm- 6 col-12">
+                            <label id="idNombre">Nombre Perfil</label>
+                            <div class="form-group">
+                                <div class="input-group">
+                                    <input type="text" class="form-control input-sm no-null" id="txtPerfil" name="txtPerfil">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal" id="cerrarpx">cancelar</button>
+                    <button type="button" id="btnGrabar" class="btn btn-primary">Grabar</button>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+ 
+
+@section scripts {
+    <script type="text/javascript" src="~/assets/scripts/page/Seguridad/Perfil.js"></script>
+}
+
+

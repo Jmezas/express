@@ -1,0 +1,274 @@
+﻿a {
+    text-decoration: none !important;
+}
+
+ul li {
+    list-style: none;
+}
+
+.list-hijo {
+    font-size: 12px;
+}
+
+.list-nieto {
+    font-size: 10px;
+}
+
+.cont {
+    padding: 20px 20px;
+}
+
+.card-int {
+    /*background: #E9ECEF;*/
+    border: 1px solid #E9ECEF;
+    padding: 10px 10px;
+}
+
+.negrita {
+    font-weight: bold;
+    color: #495057;
+}
+
+.table-peq {
+    font-size: 10px !important;
+}
+
+.esp {
+    padding: 10px 5px !important;
+}
+
+.tabla-peq {
+    font-size: 10px !important;
+}
+
+tbody {
+    font-size: 12px !important;
+}
+
+tr th {
+    font-size: 12px !important;
+}
+
+.dataTables_filter label {
+    float: right !important;
+}
+
+.dataTables_paginate ul {
+    float: right !important;
+}
+
+/*.dataTables_wrapper {
+    padding: 20px 0px !important;
+}*/
+
+.esp-caj {
+    padding-top: 20px;
+    padding-bottom: 20px;
+}
+
+.caj-input {
+    border: 1px solid #79848C;
+    padding: 10px 10px;
+    border-radius: 5px 5px;
+}
+/*Autocomplete*/
+
+.ui-autocomplete {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    z-index: 11000;
+    float: left;
+    display: none;
+    min-width: 160px;
+    padding: 4px 0;
+    margin: 0 0 10px 25px;
+    list-style: none;
+    background-color: #ffffff;
+    border-color: #ccc;
+    border-color: rgba(0, 0, 0, 0.2);
+    border-style: solid;
+    border-width: 1px;
+    max-height: 200px;
+    overflow-y: auto;
+    /* prevent horizontal scrollbar */
+    overflow-x: hidden;
+    /* add padding to account for vertical scrollbar */
+    padding-right: 20px;
+}
+
+.ui-menu-item > a.ui-corner-all {
+    display: block;
+    padding: 3px 15px;
+    clear: both;
+    font-weight: normal;
+    line-height: 18px;
+    color: #555555;
+    white-space: nowrap;
+    text-decoration: none;
+}
+
+.ui-state-hover, .ui-state-active {
+    color: #ffffff;
+    text-decoration: none;
+    background-color: #0088cc;
+    border-radius: 0px;
+    -webkit-border-radius: 0px;
+    -moz-border-radius: 0px;
+    background-image: none;
+}
+
+.esp-vertical {
+    padding: 20px 0px;
+}
+
+.card-line {
+    border: 1px solid #DEE2E6;
+    padding: 3px 5px;
+    width: 100%;
+}
+
+.card-lines b {
+    font-size: 12px !important;
+}
+
+.card-lines h6 {
+    padding: 5px 1px;
+    font-size: 14px;
+}
+
+.btn-card-pos {
+    width: 100%;
+    padding: 20px 20px;
+    border: none;
+    color: #ffffff;
+    font-size: 15px;
+    cursor: pointer;
+}
+
+.btn-blue {
+    background: #005bcc;
+}
+
+.btn-green {
+    background: #27b027;
+}
+
+.btn-purple {
+    background: #800080;
+}
+
+.btn-red {
+    background: #CC0000;
+}
+
+.btn-gris {
+    background: #163951;
+}
+
+.color-purple {
+    color: #800080;
+}
+
+.color-green {
+    color: #27b027;
+}
+
+.color-blue {
+    color: #005bcc;
+}
+
+.color-red {
+    color: #CC0000;
+}
+
+.color-orange {
+    color: #fd7e14;
+}
+
+.color-verde {
+    color: #20c997;
+}
+
+.color-primary {
+    color: #007bff;
+}
+
+.icon-home {
+    font-size: 40px;
+    padding: 10px 0px;
+}
+
+.esp-obj {
+    padding: 50px 0px;
+}
+
+.btn-card-pos-modal {
+    width: 100%;
+    padding: 10px 5px;
+    border: none;
+    color: #ffffff;
+    font-size: 15px;
+    cursor: pointer;
+}
+
+.esp-btn {
+    padding: 2px 2px;
+}
+
+.esp-card {
+    padding: 15px 15px;
+}
+
+.esp-cardConfig {
+    padding: 5px 5px !important;
+}
+
+.esp-left {
+    padding-left: 5px;
+}
+
+.obligatorio {
+    color: #b81f44 !important;
+}
+
+.btn-addCliente {
+    padding-left: 20px;
+}
+
+.cursorlink {
+    cursor: pointer !important;
+}
+
+
+div.dataTables_wrapper div.dataTables_processing {
+    /* background: rgba(0,0,0,0.5);*/
+    color: #3f6ad8 !important;
+    z-index: 999;
+    margin-top: 40px !important;
+}
+
+.esp-cant {
+    margin-left: 20px;
+}
+
+.nameCard {
+    font-size: 12px;
+    font-weight: bold;
+}
+
+.vertical-nav-menu {
+    overflow: scroll;
+    height: 100vh;
+}
+
+.text-prov {
+    font-size: 16px;
+    font-weight: 500;
+}
+
+.text-mov {
+    font-size: 16px;
+    font-weight: 500;
+    border-bottom: 1px solid #E9ECEF;
+}

@@ -1,0 +1,183 @@
+﻿@model SIS.Entity.EUsuario
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+<html lang="es-pe">
+<head>
+    <title>Inicio de sesión</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!--===============================================================================================-->
+    <link rel="icon" type="image/png" href="~/assets/login/images/icons/favicon.ico" />
+    <!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css" href="~/assets/login/vendor/bootstrap/css/bootstrap.min.css">
+    <!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css" href="~/assets/login/fonts/font-awesome-4.7.0/css/font-awesome.min.css">
+    <!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css" href="~/assets/login/fonts/Linearicons-Free-v1.0.0/icon-font.min.css">
+    <!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css" href="~/assets/login/vendor/animate/animate.css">
+    <!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css" href="~/assets/login/vendor/css-hamburgers/hamburgers.min.css">
+    <!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css" href="~/assets/login/vendor/animsition/css/animsition.min.css">
+    <!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css" href="~/assets/login/vendor/select2/select2.min.css">
+    <!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css" href="~/assets/login/vendor/daterangepicker/daterangepicker.css">
+    <!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css" href="~/assets/login/css/util.css">
+    <link rel="stylesheet" type="text/css" href="~/assets/login/css/main.css">
+    <!--===============================================================================================-->
+</head>
+<body style="background-color: #666666;">
+
+    <div class="limiter">
+        <div class="container-login100">
+            <div class="wrap-login100">
+
+                @using (Html.BeginForm("Login", "Seguridad", FormMethod.Post, new { @id = "FrmLogin", novalidate = "novalidate", @class = "login100-form validate-form" }))
+                {
+                    <span class="login100-form-title p-b-43">
+                        Inicio de sesión
+                    </span>
+
+                    @*<div class="wrap-input100 validate-input" data-validate="ingrese el RUC">
+                        <select class="input100 input-login" id="RUC" name="RUC"></select>
+                        <span class="focus-input100"></span>
+                        <span class="label-input100">Empresa</span>
+                    </div>*@
+                    <div class="wrap-input100 validate-input" data-validate="ingrese el usuario correcto">
+                        @Html.TextBoxFor(m => m.Usuario, new { @class = "input100", required = "required" })
+                        <span class="focus-input100"></span>
+                        <span class="label-input100">Usuario</span>
+                    </div>
+                    <div class="wrap-input100 validate-input" data-validate="se requioere la contraseña">
+                        @Html.PasswordFor(m => m.Password, new { @class = "input100", required = "required" })
+                        <span class="focus-input100"></span>
+                        <span class="label-input100">Password</span>
+                    </div>
+
+                    @*<div class="flex-sb-m w-full p-t-3 p-b-32">
+                            <div class="contact100-form-checkbox">
+                                <input class="input-checkbox100" id="ckb1" type="checkbox" name="remember-me">
+                                <label class="label-checkbox100" for="ckb1">
+                                    Remember me
+                                </label>
+                            </div>
+
+                            <div>
+                                <a href="#" class="txt1">
+                                    Forgot Password?
+                                </a>
+                            </div>
+                        </div>*@
+
+                    <div class="alert alert-danger alert-dismissible fade show" role="alert" id="cerraralert" hidden>
+                        <input type="hidden" id="mensaje" value="@ViewBag.Message"/>
+                        <strong>Error!</strong> @ViewBag.Message
+                        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+
+                    <div class="container-login100-form-btn">
+                        <button class="login100-form-btn">
+                            Iniciar Sesión
+                        </button>
+                    </div>
+                    <div class="text-center">
+                        <br />
+                        <span class="txt2">V_1.0.10</span>
+                    </div>
+                    <div class="text-center p-t-46 p-b-20">
+
+                        <span class="txt2">
+                            Síguenos
+                        </span>
+                    </div>
+
+                    <div class="login100-form-social flex-c-m">
+                        <a href="https://www.facebook.com/Dioest-Solutions-103862174671646" target="_blank" class="login100-form-social-item flex-c-m bg1 m-r-5">
+                            <i class="fa fa-facebook-f" aria-hidden="true"></i>
+                        </a>
+
+                        <a href="https://dioest.com/" target="_blank" class="login100-form-social-item flex-c-m bg2 m-r-5">
+                            <i class="fa fa-globe" aria-hidden="true"></i>
+                        </a>
+                    </div>
+
+                }
+
+
+                <div class="login100-more" style="background-image: url('/assets/login/images/delivery.jpg');">
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+
+
+    <!--===============================================================================================-->
+    <script src="~/assets/login/vendor/jquery/jquery-3.2.1.min.js"></script>
+    <!--===============================================================================================-->
+    <script src="~/assets/login/vendor/animsition/js/animsition.min.js"></script>
+    <!--===============================================================================================-->
+    <script src="~/assets/login/vendor/bootstrap/js/popper.js"></script>
+    <script src="~/assets/login/vendor/bootstrap/js/bootstrap.min.js"></script>
+    <!--===============================================================================================-->
+    <script src="~/assets/login/vendor/select2/select2.min.js"></script>
+    <!--===============================================================================================-->
+    <script src="~/assets/login/vendor/daterangepicker/moment.min.js"></script>
+    <script src="~/assets/login/vendor/daterangepicker/daterangepicker.js"></script>
+    <!--===============================================================================================-->
+    <script src="~/assets/login/vendor/countdowntime/countdowntime.js"></script>
+    <!--===============================================================================================-->
+    <script src="~/assets/login/js/main.js"></script>
+
+    <script type="text/javascript" src="~/assets/scripts/app.js"></script>
+    <script type="text/javascript" src="~/assets/scripts/custom.js"></script>
+    <script>
+         var Context = '@(HttpContext.Current.Request.Url.Scheme + System.Uri.SchemeDelimiter + HttpContext.Current.Request.Url.Authority + HttpContext.Current.Request.ApplicationPath + ((HttpContext.Current.Request.ApplicationPath.EndsWith("/")) ? "" : "/"))';
+
+        $(function () {
+            $.ajax({
+                async: true,
+                type: 'post',
+                url: General.Utils.ContextPath("shared/ListaEmpresaLogin"),
+                dataType: 'json',
+                success: function (response) {
+                    //console.log(response)
+                    //$("#RUC").append($('<option>', { value: 0, text: 'Seleccione' }));
+                    if (!response.hasOwnProperty('ErrorMessage')) { // Si la petición no emitió error
+
+                        $.grep(response, function (oDocumento) {
+
+                            $('select[name="RUC"]').append($('<option>', { value: oDocumento["Text"], text: oDocumento["Nombre"] }));
+                        });
+                    }
+                }
+            });
+        });
+
+        $(function () {
+            
+            if (!$('#mensaje').val() == '') {
+                $('#cerraralert').removeAttr('hidden');
+            } 
+        });
+
+        
+
+        setTimeout(function () {
+            $('#cerraralert').fadeOut('fast');
+        }, 5000);
+
+    </script>
+</body>
+</html>

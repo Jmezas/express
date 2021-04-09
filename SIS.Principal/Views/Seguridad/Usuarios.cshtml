@@ -1,0 +1,200 @@
+﻿
+@{
+    ViewBag.Title = "Usuario";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+<div class="row">
+    <div class="col-12">
+        <h4>
+            <i style="margin-right:7px" class="fa fa-users"></i> LISTA DE USUARIO
+        </h4>
+    </div>
+    <nav class="col-12" aria-label="breadcrumb">
+        <ol class="breadcrumb">
+            <li class="breadcrumb-item"><i class="fa fa-home"></i> <a href="@Url.Action("Principal", "Seguridad")">Principal</a></li>
+            <li class="breadcrumb-item active" aria-current="page"><i class="fa fa-users"></i> Usuario</li>
+        </ol>
+    </nav>
+</div>
+<div class="row">
+    <div class="col-12">
+        <div class="form-group pull-right">
+            <button class="btn btn-info" id="btnNuevo" data-toggle="modal" data-target="#ModalNuevo"><i class="fa fa-plus"></i> Nuevo Usuario</button>
+        </div>
+    </div>
+</div>
+<div class="card cont">
+    <div class="table-responsive" id="dvCliente">
+        <table class="table table-striped table-bordered" style="width:100%" id="tbUsuario">
+            <thead>
+                <tr style="border:1px;">
+                    <th>Perfil</th>
+                    <th>Documento</th>
+
+                    <th>Nombre</th>
+                    <th>Login</th>
+                    <th>Correo</th>
+                    <th>Direccion</th>
+                    <th>Telefono</th>
+                    <th>Acciones</th>
+                </tr>
+            </thead>
+            <tbody></tbody>
+        </table>
+    </div>
+    @*------- MODAL --------------*@
+    <div class="modal fade animate__animated animate__fadeInDown" id="ModalNuevo" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-lg" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title"> Usuario</h5>
+                    <input type="hidden" id="hdfId" />
+                    <button type="button" class="close animate__animated animate__fadeOutUp" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <div class="row">
+
+                        <div class="col-lg-3 col-12">
+                            <label>Perfil</label>
+                            <div class="form-group">
+                                <div class="input-group">
+                                    <select type="text" class="form-control" id="lstPerfil" name="lstPerfil" ></select>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-lg-3 col-12">
+                            <label>Documento</label>
+                            <div class="form-group">
+                                <div class="input-group">
+                                    <select type="text" class="form-control" id="lstDocumento" name="lstDocumento"></select>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-6 col-12">
+                            @using (Html.BeginForm("Adjuntar", "Gestion", FormMethod.Post, new { id = "frm-adjuntar" }))
+                            {
+                                <div class=" ">
+                                    <div class="form-group">
+
+                                        <div class="input-group">
+                                            <img id="imgSalida" class="rounded-circle" width="30%" height="30%" src="" />
+                                        </div>
+
+
+                                        <div class="input-group">
+                                            <input type="hidden" id="hdfImagen" />
+                                            <input type="hidden" id="hdfImg" />
+                                            <label>Subir foto</label>
+
+                                            <input type="file" class="form-control-file" name="documento" id="documento">
+                                            <label id="imagen"></label>
+                                        </div>
+
+
+                                    </div>
+                                </div>
+                            }
+                        </div>
+                        <div class="col-lg-3 col-12">
+                            <label>Sucursal</label>
+                            <div class="form-group"> 
+                                    <select type="text" class="js-example-placeholder-single js-states form-control" id="lstsucursal" name="lstsucursal" style="width: 100%" multiple="multiple"></select> 
+                            </div>
+                        </div>
+
+                        <div class="col-lg-3 col-12">
+                            <label>Nro Documento</label>
+                            <div class="form-group">
+                                <div class="input-group">
+                                    <input type="text" class="form-control" id="txtDocumento">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-6 col-12">
+                            <label>Nombre</label>
+                            <div class="form-group">
+                                <div class="input-group">
+                                    <input type="text" class="form-control" id="txtNombre">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-4 col-12">
+                            <label>Ape. Paterno</label>
+                            <div class="form-group">
+                                <div class="input-group">
+                                    <input type="text" class="form-control" id="txtPaterno">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-4 col-12">
+                            <label>Ape. Materno</label>
+                            <div class="form-group">
+                                <div class="input-group">
+                                    <input type="text" class="form-control" id="txtMaterno">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-3 col-12">
+                            <label>Telefono</label>
+                            <div class="form-group">
+                                <div class="input-group">
+                                    <input type="text" class="form-control" id="txtTelefono">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-12 col-12">
+                            <label>Direccion</label>
+                            <div class="form-group">
+                                <div class="input-group">
+                                    <input type="text" class="form-control input-sm no-null" id="txtDireccion">
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-lg-12 col-12">
+                            <label>Correo</label>
+                            <div class="form-group">
+                                <div class="input-group">
+                                    <input type="text" class="form-control input-sm no-null" id="txtEmail">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-4">
+                            <div class="form-group">
+                                <label>Codigo de usuario del sistema (*) </label>
+                                <input type="text" class="form-control input-sm no-null" id="txtUsuario" name="txtUsuario">
+                            </div>
+                        </div>
+                        <div class="col-lg-4">
+                            <div class="form-group">
+                                <label>Contraseña del sistema (*)</label>
+                                <div class="input-group" id="show_hide_password">
+                                    <input type="password" class="form-control input-sm" id="txtContrasenia" name="txtContrasenia" autocomplete="off"
+                                           readonly onfocus="this.removeAttribute('readonly');">
+                                    <div class="input-group-addon">
+                                        <button type="button" class="form-control"><i class="fa fa-eye-slash" aria-hidden="true"></i></button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                    </div>
+                  
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary " data-dismiss="modal" id="cerrarpx">cancelar</button>
+                        <button type="button" id="btnGrabar" class="btn btn-primary">Grabar</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section scripts {
+    <script type="text/javascript" src="~/assets/scripts/page/Seguridad/Usuario.js"></script>
+}

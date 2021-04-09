@@ -1,0 +1,112 @@
+﻿
+@{
+    ViewBag.Title = "ListTareas";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+<div class="row">
+    <div class="col-12">
+        <h4>
+            <i style="margin-right:7px" class="fa fa-tags"></i> LISTA TAREAS
+        </h4>
+    </div>
+    <nav class="col-12" aria-label="breadcrumb">
+        <ol class="breadcrumb">
+            <li class="breadcrumb-item"><i class="fa fa-home"></i> <a href="@Url.Action("Principal", "Seguridad")">Principal</a></li>
+            <li class="breadcrumb-item active" aria-current="page"><i class="fa fa-tags"></i> Ventas</li>
+        </ol>
+    </nav>
+</div>
+<div class="row">
+    <div class="col-12">
+        <div class="form-group pull-right">
+            <a class="btn btn-info" id="btnNuevo" href="@Url.Action("Nuevo", "Venta")"><i class="fa fa-plus"></i> Nueva Venta</a>
+        </div>
+    </div>
+</div>
+
+<div class="main-card mb-3 card">
+    <div class="card-body">
+        <div class="form-row">
+            <div class="col-lg-3 col-md-3 col-sm-12">
+                <div class="form-group">
+                    <label>Buscar</label>
+                    <input class="form-control form-control-sm" id="txtBuscar" name="txtBuscar" type="search" />
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-3 col-sm-12">
+                <div class="form-group">
+                    <label>Fecha Inicio</label>
+                    <input class="form-control form-control-sm" id="fechaInicio" name="fechaInicio" type="text" autocomplete="off" />
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-3 col-sm-12">
+                <div class="form-group">
+                    <label>Fecha Fin</label>
+                    <input class="form-control form-control-sm" id="fechaFin" name="fechaFin" type="text" autocomplete="off" />
+                </div>
+            </div>
+            <div class="col-12 esp-card">
+                <br />
+                <div class="float-right">
+                    <button class="btn btn-primary" id="btnFiltrar"><i class="fa fa-filter"></i> Filtrar</button>
+                    <button class="btn btn-danger" id="btnFactura"><i class="fa fa-file-pdf"></i> PDF</button>
+                    <button class="btn btn-success" id="btnExcel"><i class="fa fa-file-excel"></i> Excel</button>
+                </div>
+                <br />
+            </div>
+            <div class="col-12">
+                <input type="hidden" id="hdfId" />
+                <div class="table-responsive-sm table-responsive-md">
+                    <table class="table table-striped table-bordered" cellspacing="0" style="width:100%" id="tbVenta">
+                        <thead>
+                            <tr class="text-tit" style="border:1px;">
+                                <th>item</th>
+                                <th>id</th>
+                                <th>userId</th>
+                                <th>trakerid</th>
+                                <th>Descripcion</th>
+                                
+                                <th>desde</th>
+                                <th>hasta</th>
+                                <th>fecha emi.</th>
+                                <th>estado</th>
+                                <th>origen</th>
+                                <th>tipo</th>
+                                
+                            </tr>
+                        </thead>
+                        <tbody class="text-peq"></tbody>
+                    </table>
+                    <p id="pHelperProductos" style="margin-top: 5px; font-size: 11px;"></p>
+                    <input type="hidden" id="TotalReg" />
+                    <div class="row">
+                        <div class="col-lg-6 col-md-6 col-sm-6 col-12">
+
+                            <div class="checkbox checkbox-circle checkbox-info peers ai-c">
+                                <input type="checkbox" id="IdTotal" name="IdTotal" class="peer" checked>
+                                <label for="inputCall1" class="peers peer-greed js-sb ai-c"><span class="peer peer-greed">Todos Registro</span></label>
+                            </div>
+                        </div>
+                        <div class="col-lg-6 col-md-6 col-sm-6 col-12 ">
+                            <input type="hidden" id="hdf_Pagina" />
+                            <input type="hidden" id="hdf_TotalPagina" />
+                            <div class="float-right">
+                                <button class="btn btn-secondary" id="btnAnteror"><i class="fa fa-arrow-left"></i> Anterior</button>
+                                <Label ID="lblNumPagina"></Label>
+                                <button class="btn btn-secondary" id="btnSiguiente"> Siguiente  <i class="fa fa-arrow-right"></i></button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>
+ 
+@section scripts {
+    <script type="text/javascript" src="~/assets/scripts/page/General/listaTareas.js"></script>
+}
+
