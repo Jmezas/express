@@ -378,20 +378,21 @@ namespace SIS.Data
                         while (Reader.Read())
                         {
                             ETareas obj = new ETareas();
-                            obj.id = int.Parse(Reader["id"].ToString());
-                            obj.item = int.Parse(Reader["item"].ToString());
-                            obj.idtarea = int.Parse(Reader["idTareas"].ToString());
-                            obj.userId = int.Parse(Reader["user_id"].ToString());
-                            obj.trakerid = int.Parse(Reader["tracker_id"].ToString()); 
+                            obj.intcheck = int.Parse(Reader["intcheck"].ToString());
+                            obj.stado = Reader["status"].ToString();
+                            obj.etiqueta = Reader["etiqueta"].ToString();
+                            obj.tarea = Reader["tarea"].ToString();
                             obj.label = Reader["label"].ToString();
                             obj.descripcion = Reader["description"].ToString();
-                            obj.from = Reader["dfrom"].ToString();
-                            obj.to = Reader["dto"].ToString();
-                            obj.dcreacion = Reader["creation_date"].ToString();
-                            obj.stado = Reader["status_change_date"].ToString();
-                            obj.orgin = Reader["origin"].ToString();
-                            obj.stado = Reader["status"].ToString();
-                            obj.type = Reader["type"].ToString(); 
+                            obj.id = int.Parse(Reader["id"].ToString()); 
+                            obj.item = int.Parse(Reader["item"].ToString());
+                            
+                            obj.direcion = Reader["direccion"].ToString();
+                            obj.inicio = Reader["inicio"].ToString();
+                            obj.fin = Reader["fin"].ToString();
+                            obj.llegada = Reader["llegada"].ToString();
+                            obj.duracion = int.Parse(Reader["duracion"].ToString());
+                           
                             obj.total = int.Parse(Reader["Total"].ToString());
                             obj.totalPagina = int.Parse(Reader["totalPaginas"].ToString()); 
                             oDatos.Add(obj);

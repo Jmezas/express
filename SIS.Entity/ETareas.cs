@@ -9,6 +9,8 @@ namespace SIS.Entity
     public class ETareas
     {
         public int id { get; set; }
+        public int intcheck { get; set; }
+        public string tarea { get; set; }
         public int total { get; set; }
         public int totalPagina { get; set; }
         public int item { get; set; }
@@ -23,6 +25,14 @@ namespace SIS.Entity
         public string stado { get; set; }
         public string orgin { get; set; }
         public string type { get; set; }
+        public string direcion { get; set; }
+        public string inicio { get; set; }
+        public string fin { get; set; }
+        public string llegada { get; set; }
+        public int duracion { get; set; }
+        public string etiqueta { get; set; }
+
+     
 
     }
 }

@@ -16,11 +16,13 @@ $(function () {
     });
 
     $("#btnFiltrar").click(function () {
+        $("#hdf_Pagina").val('1');
         ListaGeneral();
     })
     $("#txtBuscar").keyup(function () {
 
         $("#txtBuscar").val();
+        $("#hdf_Pagina").val('1');
         ListaGeneral()
     });
     $("#btnFactura").click(function () {
@@ -147,19 +149,18 @@ function ListaGeneral() {
                 $.grep(response, function (item) {
 
                     $tb.find('tbody').append(
-                        '<tr data-id="' + item["idtarea"] + '">' +
+                        '<tr data-id="' + item["intcheck"] + '">' +
                         '<td>' + item["item"]+  '</td>' +
-                        '<td>' + item["idtarea"]  + '</td>' +
-                        '<td>' + item["userId"]  + '</td>' +
-                        '<td>' + item["trakerid"]  + '</td>' +
+                        '<td>' + item["stado"]  + '</td>' +
+                        '<td>' + item["etiqueta"]  + '</td>' +
+                        '<td>' + item["tarea"]  + '</td>' +
                         '<td>' + item["label"] + " " + item["descripcion"] + '</td>' +
-                        '<td>' + (item["from"]) + '</td>' +
-                        '<td>' + (item["to"]) + '</td>' +
-                        '<td>' + (item["dcreacion"]) + '</td>' +
-                        '<td>' + (item["stado"]) + '</td>' +
-                        '<td>' + (item["orgin"]) + '</td>' +
-                        '<td>' + (item["type"]) + '</td>' + 
-                         
+                        '<td>' + (item["id"]) + '</td>' +
+                        '<td>' + (item["direcion"]) + '</td>' +
+                        '<td>' + (item["inicio"]) + '</td>' +
+                        '<td>' + (item["fin"]) + '</td>' +
+                        '<td>' + (item["llegada"]) + '</td>' + 
+                        '<td>' + (item["duracion"]) + '</td>' +  
                         '</tr>'
                     );
                 });
