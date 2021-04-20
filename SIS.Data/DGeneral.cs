@@ -379,14 +379,14 @@ namespace SIS.Data
                         {
                             ETareas obj = new ETareas();
                             obj.intcheck = int.Parse(Reader["intcheck"].ToString());
+                            obj.item = int.Parse(Reader["item"].ToString());
                             obj.stado = Reader["status"].ToString();
                             obj.etiqueta = Reader["etiqueta"].ToString();
                             obj.tarea = Reader["tarea"].ToString();
                             obj.label = Reader["label"].ToString();
                             obj.descripcion = Reader["description"].ToString();
                             obj.id = (Reader["id"].ToString()); 
-                            obj.item = int.Parse(Reader["item"].ToString());
-                            
+                          
                             obj.direcion = Reader["direccion"].ToString();
                             obj.inicio = Reader["inicio"].ToString();
                             obj.fin = Reader["fin"].ToString();

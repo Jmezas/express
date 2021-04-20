@@ -340,6 +340,7 @@
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="assets\images\Empresa\" />
+    <Folder Include="Reporte\Venta\pdf\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="assets\fonts\fa-solid-900.eot" />
@@ -451,6 +452,23 @@
     <None Include="Properties\PublishProfiles\Jhaser.pubxml" />
     <Content Include="Views\Seguridad\Menu.cshtml" />
     <Content Include="Views\General\ListTareas.cshtml" />
+    <Content Include="Reporte\Inventario\Excel\Kardex.xlsx" />
+    <Content Include="Reporte\Inventario\Excel\Kardex_admin.xlsx" />
+    <Content Include="Reporte\Inventario\Excel\Kardex_TINAAYMAR.xlsx" />
+    <Content Include="Reporte\Inventario\Excel\Kardex_Valorizado.xlsx" />
+    <Content Include="Reporte\Inventario\Excel\Kardex_Valorizado_admin.xlsx" />
+    <Content Include="Reporte\OC\Excel\Compras.xlsx" />
+    <Content Include="Reporte\OC\Excel\ComprasRegistro.xlsx" />
+    <Content Include="Reporte\OC\Excel\Movimiento.xlsx" />
+    <Content Include="Reporte\OC\Excel\Stock.xlsx" />
+    <Content Include="Reporte\OC\pdf\pdfDocumento__Cotizacion_001 00004.pdf" />
+    <Content Include="Reporte\OC\pdf\reporte.pdf" />
+    <Content Include="Reporte\OC\reporte.pdf" />
+    <Content Include="Reporte\OC\reportepdf" />
+    <Content Include="Reporte\OC\reportoc.xlsx" />
+    <Content Include="Reporte\OC\reportoc_admin.pdf" />
+    <Content Include="Reporte\OC\reportoc_admin.xlsx" />
+    <Content Include="Reporte\Venta\excel\Tarea.xlsx" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\SIS.Business\SIS.Business.csproj">

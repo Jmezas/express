@@ -42,11 +42,11 @@ $(function () {
             FechaInicio = inicio,
             FechaFin = Fin,
             numPaginas = parseInt($("#hdf_Pagina").val()),
-            AllReg = $("#IdTotal").is(':checked') === true ? 0 : 1,
-            CantiFill = $("#TotalReg").val();
+            AllReg = $("#IdTotal").is(':checked') === true ? 0 : 1;
+        CantiFill = $("#TotalReg").val();
 
-        window.location.href = General.Utils.ContextPath('Venta/ReportePDF?filtro=' + Filtro + "&FechaIncio=" + FechaInicio + "&FechaFin=" + FechaFin +
-            "&numPag=" + numPaginas + "&allReg=" + AllReg + "&Cant=" + CantiFill + "&venta=" + 1);
+        window.location.href = General.Utils.ContextPath('General/ReportePDF?filtro=' + Filtro + "&FechaIncio=" + FechaInicio + "&FechaFin=" + FechaFin +
+            "&numPag=" + numPaginas + "&allReg=" + AllReg + "&Cant=" + CantiFill);
     });
     $("#btnExcel").click(function () {
         var inicio = $('#fechaInicio').val().split(/\//);
@@ -65,11 +65,11 @@ $(function () {
             FechaInicio = inicio,
             FechaFin = Fin,
             numPaginas = parseInt($("#hdf_Pagina").val()),
-            AllReg = $("#IdTotal").is(':checked') === true ? 0 : 1,
+            AllReg = $("#IdTotal").is(':checked') === true ? 0 : 1;
             CantiFill = $("#TotalReg").val();
 
-        window.location.href = General.Utils.ContextPath('Venta/ReporteExcel?cliente=' + Filtro + "&FechaIncio=" + FechaInicio + "&FechaFin=" + FechaFin +
-            "&numPag=" + numPaginas + "&allReg=" + AllReg + "&Cant=" + CantiFill + "&venta=" + 1);
+        window.location.href = General.Utils.ContextPath('General/ReporteExcel?filtro=' + Filtro + "&FechaIncio=" + FechaInicio + "&FechaFin=" + FechaFin +
+            "&numPag=" + numPaginas + "&allReg=" + AllReg + "&Cant=" + CantiFill);
     });
 
 
