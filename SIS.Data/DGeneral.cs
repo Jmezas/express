@@ -384,7 +384,7 @@ namespace SIS.Data
                             obj.tarea = Reader["tarea"].ToString();
                             obj.label = Reader["label"].ToString();
                             obj.descripcion = Reader["description"].ToString();
-                            obj.id = int.Parse(Reader["id"].ToString()); 
+                            obj.id = (Reader["id"].ToString()); 
                             obj.item = int.Parse(Reader["item"].ToString());
                             
                             obj.direcion = Reader["direccion"].ToString();

@@ -8,7 +8,7 @@ namespace SIS.Entity
 {
     public class ETareas
     {
-        public int id { get; set; }
+        public string id { get; set; }
         public int intcheck { get; set; }
         public string tarea { get; set; }
         public int total { get; set; }
