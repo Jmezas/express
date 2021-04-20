@@ -391,7 +391,7 @@ namespace SIS.Data
                             obj.inicio = Reader["inicio"].ToString();
                             obj.fin = Reader["fin"].ToString();
                             obj.llegada = Reader["llegada"].ToString();
-                            obj.duracion = int.Parse(Reader["duracion"].ToString());
+                            obj.duracion = Reader["duracion"].ToString();
                            
                             obj.total = int.Parse(Reader["Total"].ToString());
                             obj.totalPagina = int.Parse(Reader["totalPaginas"].ToString()); 

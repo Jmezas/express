@@ -29,7 +29,7 @@ namespace SIS.Entity
         public string inicio { get; set; }
         public string fin { get; set; }
         public string llegada { get; set; }
-        public int duracion { get; set; }
+        public string duracion { get; set; }
         public string etiqueta { get; set; }
 
      
