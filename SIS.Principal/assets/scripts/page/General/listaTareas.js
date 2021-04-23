@@ -19,12 +19,32 @@ $(function () {
         $("#hdf_Pagina").val('1');
         ListaGeneral();
     })
-    $("#txtBuscar").keyup(function () {
+    $("#txtEstado").keyup(function () {
 
-        $("#txtBuscar").val();
+        $("#txtEstado").val();
         $("#hdf_Pagina").val('1');
         ListaGeneral()
     });
+    $("#txtetiqueta").keyup(function () {
+
+        $("#txtetiqueta").val();
+        $("#hdf_Pagina").val('1');
+        ListaGeneral()
+    });
+    $("#txtTarea").keyup(function () {
+
+        $("#txtTarea").val();
+        $("#hdf_Pagina").val('1');
+        ListaGeneral()
+    });
+    $("#txtlabel").keyup(function () {
+
+        $("#txtlabel").val();
+        $("#hdf_Pagina").val('1');
+        ListaGeneral()
+    });
+
+
     $("#btnFactura").click(function () {
         var inicio = $('#fechaInicio').val().split(/\//);
         inicio = [inicio[1], inicio[0], inicio[2]].join('/');
@@ -38,14 +58,18 @@ $(function () {
         if (Fin == "//") {
             Fin = "";
         }
-        var Filtro = $("#txtBuscar").val(),
+        var stado = $("#txtEstado").val(),
+            etiqueta = $("#txtetiqueta").val(),
+            tarea = $("#txtTarea").val(),
+            label = $("#txtlabel").val(),
             FechaInicio = inicio,
             FechaFin = Fin,
             numPaginas = parseInt($("#hdf_Pagina").val()),
             AllReg = $("#IdTotal").is(':checked') === true ? 0 : 1;
         CantiFill = $("#TotalReg").val();
 
-        window.location.href = General.Utils.ContextPath('General/ReportePDF?filtro=' + Filtro + "&FechaIncio=" + FechaInicio + "&FechaFin=" + FechaFin +
+        window.location.href = General.Utils.ContextPath('General/ReportePDF?stado=' + stado + "&etiqueta=" + etiqueta + "&tarea=" + tarea + "&label=" + label +
+            "&FechaIncio=" + FechaInicio + "&FechaFin=" + FechaFin +
             "&numPag=" + numPaginas + "&allReg=" + AllReg + "&Cant=" + CantiFill);
     });
     $("#btnExcel").click(function () {
@@ -61,14 +85,18 @@ $(function () {
         if (Fin == "//") {
             Fin = "";
         }
-        var Filtro = $("#txtBuscar").val(),
+        var stado = $("#txtEstado").val(),
+            etiqueta = $("#txtetiqueta").val(),
+            tarea = $("#txtTarea").val(),
+            label = $("#txtlabel").val(),
             FechaInicio = inicio,
             FechaFin = Fin,
             numPaginas = parseInt($("#hdf_Pagina").val()),
             AllReg = $("#IdTotal").is(':checked') === true ? 0 : 1;
-            CantiFill = $("#TotalReg").val();
+        CantiFill = $("#TotalReg").val();
 
-        window.location.href = General.Utils.ContextPath('General/ReporteExcel?filtro=' + Filtro + "&FechaIncio=" + FechaInicio + "&FechaFin=" + FechaFin +
+        window.location.href = General.Utils.ContextPath('General/ReporteExcel?stado=' + stado + "&etiqueta=" + etiqueta + "&tarea=" + tarea + "&label=" + label +
+            "&FechaIncio=" + FechaInicio + "&FechaFin=" + FechaFin +
             "&numPag=" + numPaginas + "&allReg=" + AllReg + "&Cant=" + CantiFill);
     });
 
@@ -105,7 +133,7 @@ $(function () {
         }
     });
 
- 
+
 
 
 })
@@ -122,7 +150,11 @@ function ListaGeneral() {
     if (Fin == "//") {
         Fin = "";
     }
-    var Filtro = $("#txtBuscar").val(),
+    var stado = $("#txtEstado").val(),
+        etiqueta = $("#txtetiqueta").val(),
+        tarea = $("#txtTarea").val(),
+        label = $("#txtlabel").val(),
+
         FechaInicio = inicio,
         FechaFin = Fin,
         numPaginas = parseInt($("#hdf_Pagina").val()),
@@ -133,7 +165,7 @@ function ListaGeneral() {
         type: 'post',
         url: General.Utils.ContextPath('General/ListaTareas'),
         dataType: 'json',
-        data: { filtro: Filtro, FechaIncio: FechaInicio, FechaFin: FechaFin, numPag: numPaginas, allReg: AllReg, Cant: 10 },
+        data: { stado: stado, etiqueta: etiqueta, tarea: tarea, label: label, FechaIncio: FechaInicio, FechaFin: FechaFin, numPag: numPaginas, allReg: AllReg, Cant: 10 },
         success: function (response) {
 
             var $tb = $("#tbVenta");
@@ -150,17 +182,17 @@ function ListaGeneral() {
 
                     $tb.find('tbody').append(
                         '<tr data-id="' + item["intcheck"] + '">' +
-                        '<td>' + item["item"]+  '</td>' +
-                        '<td>' + item["stado"]  + '</td>' +
-                        '<td>' + item["etiqueta"]  + '</td>' +
-                        '<td>' + item["tarea"]  + '</td>' +
+                        '<td>' + item["item"] + '</td>' +
+                        '<td>' + item["stado"] + '</td>' +
+                        '<td>' + item["etiqueta"] + '</td>' +
+                        '<td>' + item["tarea"] + '</td>' +
                         '<td>' + item["label"] + " " + item["descripcion"] + '</td>' +
                         '<td>' + (item["id"]) + '</td>' +
                         '<td>' + (item["direcion"]) + '</td>' +
                         '<td>' + (item["inicio"]) + '</td>' +
                         '<td>' + (item["fin"]) + '</td>' +
-                        '<td>' + (item["llegada"]) + '</td>' + 
-                        '<td>' + (item["duracion"]) + '</td>' +  
+                        '<td>' + (item["llegada"]) + '</td>' +
+                        '<td>' + (item["duracion"]) + '</td>' +
                         '</tr>'
                     );
                 });

@@ -23,14 +23,14 @@ namespace SIS.Principal.Controllers
         }
 
         [HttpPost]
-        public void ListaTareas(string filtro, string FechaIncio, string FechaFin, int numPag, int allReg, int Cant)
+        public void ListaTareas(string stado, string etiqueta, string tarea, string label, string FechaIncio, string FechaFin, int numPag, int allReg, int Cant)
         {
             try
             {
 
                 Utils.Write(
                     ResponseType.JSON,
-                    General.ListaTarea(filtro, FechaIncio, FechaFin, numPag, allReg, Cant)
+                    General.ListaTarea(stado, etiqueta, tarea, label, FechaIncio, FechaFin, numPag, allReg, Cant)
                 );
             }
             catch (Exception Exception)
@@ -43,7 +43,7 @@ namespace SIS.Principal.Controllers
         }
 
         #region Reporte Excel 
-        public ActionResult ReporteExcel(string filtro, string FechaIncio, string FechaFin, int numPag, int allReg, int Cant)
+        public ActionResult ReporteExcel(string stado, string etiqueta, string tarea, string label, string FechaIncio, string FechaFin, int numPag, int allReg, int Cant)
         {
             try
             {
@@ -57,7 +57,7 @@ namespace SIS.Principal.Controllers
                 List<ETareas> ListaCompra;
 
 
-                ListaCompra = General.ListaTarea(filtro, FechaIncio, FechaFin, numPag, allReg, Cant);
+                ListaCompra = General.ListaTarea(stado, etiqueta, tarea, label, FechaIncio, FechaFin, numPag, allReg, Cant);
 
 
 
@@ -126,14 +126,14 @@ namespace SIS.Principal.Controllers
         #endregion
 
         #region Reporte PDF
-        public ActionResult ReportePDF(string filtro, string FechaIncio, string FechaFin, int numPag, int allReg, int Cant)
+        public ActionResult ReportePDF(string stado, string etiqueta, string tarea, string label, string FechaIncio, string FechaFin, int numPag, int allReg, int Cant)
         {
             Document pdfDoc = new Document(PageSize.A4.Rotate(), 5, 5, 10, 10);
 
             List<ETareas> ListaCompra;
 
 
-            ListaCompra = General.ListaTarea(filtro, FechaIncio, FechaFin, numPag, allReg, Cant);
+            ListaCompra = General.ListaTarea(stado, etiqueta, tarea, label, FechaIncio, FechaFin, numPag, allReg, Cant);
 
 
 

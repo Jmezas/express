@@ -357,7 +357,7 @@ namespace SIS.Data
             }
         }
 
-        public List<ETareas> ListaTarea(string filtro, string FechaIncio, string FechaFin, int numPag, int allReg, int Cant)
+        public List<ETareas> ListaTarea(string stado, string etiqueta, string tarea, string label, string FechaIncio, string FechaFin, int numPag, int allReg, int Cant)
         {
             List<ETareas> oDatos = new List<ETareas>();
             using (var Connection = GetConnection(BaseDeDatos))
@@ -367,7 +367,10 @@ namespace SIS.Data
                     Connection.Open();
                     SetQuery("ListaTarea");
                     CreateHelper(Connection);
-                    AddInParameter("@filtro", filtro); 
+                    AddInParameter("@stado", stado);
+                    AddInParameter("@etiqueta", etiqueta);
+                    AddInParameter("@tarea", tarea);
+                    AddInParameter("@label", label); 
                     AddInParameter("@FechaInicio", FechaIncio);
                     AddInParameter("@FechaFin", FechaFin);
                     AddInParameter("@numPagina", numPag);

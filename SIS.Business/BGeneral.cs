@@ -131,11 +131,11 @@ namespace SIS.Business
                 throw Exception;
             }
         }
-        public List<ETareas> ListaTarea(string filtro, string FechaIncio, string FechaFin, int numPag, int allReg, int Cant)
+        public List<ETareas> ListaTarea(string stado, string etiqueta, string tarea, string label, string FechaIncio, string FechaFin, int numPag, int allReg, int Cant)
         {
             try
             {
-                return Data.ListaTarea(filtro, FechaIncio, FechaFin, numPag, allReg, Cant);
+                return Data.ListaTarea(  stado,   etiqueta,   tarea,   label, FechaIncio, FechaFin, numPag, allReg, Cant);
             }
             catch (Exception Exception)
             {
