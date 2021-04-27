@@ -381,7 +381,7 @@ namespace SIS.Data
                         while (Reader.Read())
                         {
                             ETareas obj = new ETareas();
-                            obj.intcheck = int.Parse(Reader["intcheck"].ToString());
+                            obj.intcheck = int.Parse(Reader["idtareacheck"].ToString());
                             obj.item = int.Parse(Reader["item"].ToString());
                             obj.stado = Reader["status"].ToString();
                             obj.etiqueta = Reader["etiqueta"].ToString();
