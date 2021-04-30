@@ -357,7 +357,7 @@ namespace SIS.Data
             }
         }
 
-        public List<ETareas> ListaTarea(string stado, string etiqueta, string tarea, string label, string FechaIncio, string FechaFin, int numPag, int allReg, int Cant)
+        public List<ETareas> ListaTarea(string stado, string id, string etiqueta, string tarea, string label, string FechaIncio, string FechaFin, int numPag, int allReg, int Cant)
         {
             List<ETareas> oDatos = new List<ETareas>();
             using (var Connection = GetConnection(BaseDeDatos))
@@ -368,6 +368,7 @@ namespace SIS.Data
                     SetQuery("ListaTarea");
                     CreateHelper(Connection);
                     AddInParameter("@stado", stado);
+                    AddInParameter("@id", id);
                     AddInParameter("@etiqueta", etiqueta);
                     AddInParameter("@tarea", tarea);
                     AddInParameter("@label", label); 
@@ -414,7 +415,7 @@ namespace SIS.Data
                 return oDatos;
             }
         }
-        public List<ETareas> ListaTareados(string stado, string etiqueta, string tarea, string label, string FechaIncio, string FechaFin, int numPag, int allReg, int Cant)
+        public List<ETareas> ListaTareados(string stado, string id, string etiqueta, string tarea, string label, string FechaIncio, string FechaFin, int numPag, int allReg, int Cant)
         {
             List<ETareas> oDatos = new List<ETareas>();
             using (var Connection = GetConnection(BaseDeDatos))
@@ -425,6 +426,7 @@ namespace SIS.Data
                     SetQuery("ListaTareados");
                     CreateHelper(Connection);
                     AddInParameter("@stado", stado);
+                    AddInParameter("@id", id);
                     AddInParameter("@etiqueta", etiqueta);
                     AddInParameter("@tarea", tarea);
                     AddInParameter("@label", label);

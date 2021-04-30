@@ -43,7 +43,12 @@ $(function () {
         $("#hdf_Pagina").val('1');
         ListaGeneral()
     });
+    $("#txtId").keyup(function () {
 
+        $("#txtId").val();
+        $("#hdf_Pagina").val('1');
+        ListaGeneral()
+    });
 
     $("#btnFactura").click(function () {
         var inicio = $('#fechaInicio').val().split(/\//);
@@ -62,13 +67,14 @@ $(function () {
             etiqueta = $("#txtetiqueta").val(),
             tarea = $("#txtTarea").val(),
             label = $("#txtlabel").val(),
+            id = $("#txtId").val(),
             FechaInicio = inicio,
             FechaFin = Fin,
             numPaginas = parseInt($("#hdf_Pagina").val()),
             AllReg = $("#IdTotal").is(':checked') === true ? 0 : 1;
         CantiFill = $("#TotalReg").val();
 
-        window.location.href = General.Utils.ContextPath('General/ReportePDF?stado=' + stado + "&etiqueta=" + etiqueta + "&tarea=" + tarea + "&label=" + label +
+        window.location.href = General.Utils.ContextPath('General/ReportePDF?stado=' + stado + "&id=" + id + "&etiqueta=" + etiqueta + "&tarea=" + tarea + "&label=" + label +
             "&FechaIncio=" + FechaInicio + "&FechaFin=" + FechaFin +
             "&numPag=" + numPaginas + "&allReg=" + AllReg + "&Cant=" + CantiFill);
     });
@@ -89,13 +95,14 @@ $(function () {
             etiqueta = $("#txtetiqueta").val(),
             tarea = $("#txtTarea").val(),
             label = $("#txtlabel").val(),
+            id = $("#txtId").val(),
             FechaInicio = inicio,
             FechaFin = Fin,
             numPaginas = parseInt($("#hdf_Pagina").val()),
             AllReg = $("#IdTotal").is(':checked') === true ? 0 : 1;
         CantiFill = $("#TotalReg").val();
 
-        window.location.href = General.Utils.ContextPath('General/ReporteExcel?stado=' + stado + "&etiqueta=" + etiqueta + "&tarea=" + tarea + "&label=" + label +
+        window.location.href = General.Utils.ContextPath('General/ReporteExcel?stado=' + stado + "&id=" + id +  "&etiqueta=" + etiqueta + "&tarea=" + tarea + "&label=" + label +
             "&FechaIncio=" + FechaInicio + "&FechaFin=" + FechaFin +
             "&numPag=" + numPaginas + "&allReg=" + AllReg + "&Cant=" + CantiFill);
     });
@@ -154,7 +161,7 @@ function ListaGeneral() {
         etiqueta = $("#txtetiqueta").val(),
         tarea = $("#txtTarea").val(),
         label = $("#txtlabel").val(),
-
+        id = $("#txtId").val(),
         FechaInicio = inicio,
         FechaFin = Fin,
         numPaginas = parseInt($("#hdf_Pagina").val()),
@@ -165,7 +172,7 @@ function ListaGeneral() {
         type: 'post',
         url: General.Utils.ContextPath('General/ListaTareas'),
         dataType: 'json',
-        data: { stado: stado, etiqueta: etiqueta, tarea: tarea, label: label, FechaIncio: FechaInicio, FechaFin: FechaFin, numPag: numPaginas, allReg: AllReg, Cant: 10 },
+        data: { stado: stado,id:id, etiqueta: etiqueta, tarea: tarea, label: label, FechaIncio: FechaInicio, FechaFin: FechaFin, numPag: numPaginas, allReg: AllReg, Cant: 10 },
         success: function (response) {
 
             var $tb = $("#tbVenta");
