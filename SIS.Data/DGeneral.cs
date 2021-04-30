@@ -395,9 +395,67 @@ namespace SIS.Data
                             obj.fin = Reader["fin"].ToString();
                             obj.llegada = Reader["llegada"].ToString();
                             obj.duracion = Reader["duracion"].ToString();
+                            obj.empleado = Reader["empleado"].ToString();
                            
                             obj.total = int.Parse(Reader["Total"].ToString());
                             obj.totalPagina = int.Parse(Reader["totalPaginas"].ToString()); 
+                            oDatos.Add(obj);
+                        }
+                    }
+                }
+                catch (Exception Exception)
+                {
+                    throw Exception;
+                }
+                finally
+                {
+                    Connection.Close();
+                }
+                return oDatos;
+            }
+        }
+        public List<ETareas> ListaTareados(string stado, string etiqueta, string tarea, string label, string FechaIncio, string FechaFin, int numPag, int allReg, int Cant)
+        {
+            List<ETareas> oDatos = new List<ETareas>();
+            using (var Connection = GetConnection(BaseDeDatos))
+            {
+                try
+                {
+                    Connection.Open();
+                    SetQuery("ListaTareados");
+                    CreateHelper(Connection);
+                    AddInParameter("@stado", stado);
+                    AddInParameter("@etiqueta", etiqueta);
+                    AddInParameter("@tarea", tarea);
+                    AddInParameter("@label", label);
+                    AddInParameter("@FechaInicio", FechaIncio);
+                    AddInParameter("@FechaFin", FechaFin);
+                    AddInParameter("@numPagina", numPag);
+                    AddInParameter("@allReg", allReg);
+                    AddInParameter("@iCantFilas", Cant);
+                    using (var Reader = ExecuteReader())
+                    {
+                        while (Reader.Read())
+                        {
+                            ETareas obj = new ETareas();
+                            obj.intcheck = int.Parse(Reader["idtareacheck"].ToString());
+                            obj.item = int.Parse(Reader["item"].ToString());
+                            obj.stado = Reader["status"].ToString();
+                            obj.etiqueta = Reader["etiqueta"].ToString();
+                            obj.tarea = Reader["tarea"].ToString();
+                           
+                            obj.descripcion = Reader["description"].ToString();
+                            obj.id = (Reader["id"].ToString());
+
+                            obj.direcion = Reader["direccion"].ToString();
+                            obj.inicio = Reader["inicio"].ToString();
+                            obj.fin = Reader["fin"].ToString();
+                            obj.llegada = Reader["llegada"].ToString();
+                            obj.duracion = Reader["duracion"].ToString();
+                            obj.empleado = Reader["empleado"].ToString();
+
+                            obj.total = int.Parse(Reader["Total"].ToString());
+                            obj.totalPagina = int.Parse(Reader["totalPaginas"].ToString());
                             oDatos.Add(obj);
                         }
                     }

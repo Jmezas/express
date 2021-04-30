@@ -163,7 +163,7 @@ function ListaGeneral() {
     $.ajax({
         async: true,
         type: 'post',
-        url: General.Utils.ContextPath('General/ListaTareas'),
+        url: General.Utils.ContextPath('General/ListaTareasdos'),
         dataType: 'json',
         data: { stado: stado, etiqueta: etiqueta, tarea: tarea, label: label, FechaIncio: FechaInicio, FechaFin: FechaFin, numPag: numPaginas, allReg: AllReg, Cant: 10 },
         success: function (response) {
@@ -185,10 +185,9 @@ function ListaGeneral() {
                         '<td>' + item["item"] + '</td>' +
                         '<td>' + item["empleado"] + '</td>' +
                         '<td>' + item["etiqueta"] + '</td>' +
-                        '<td>' + item["stado"] + '</td>' +
-
+                        '<td>' + item["stado"] + '</td>' + 
                         '<td>' + item["tarea"] + '</td>' +
-                        '<td>' + item["label"] + '</td>' +
+                       
                         '<td>' + item["descripcion"] + '</td>' +
                         '<td>' + (item["id"]) + '</td>' +
                         '<td>' + (item["direcion"]) + '</td>' +

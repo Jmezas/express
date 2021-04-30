@@ -32,5 +32,6 @@ namespace SIS.Entity
         public string llegada { get; set; }
         public string duracion { get; set; }
         public string etiqueta { get; set; } 
+        public string empleado { get; set; } 
     }
 }

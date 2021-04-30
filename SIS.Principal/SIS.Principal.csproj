@@ -274,6 +274,7 @@
     <Content Include="assets\scripts\js\main.js" />
     <Content Include="assets\scripts\js\popper.min.js" />
     <Content Include="assets\scripts\main.js" />
+    <Content Include="assets\scripts\page\General\listaTareas2.js" />
     <Content Include="assets\scripts\page\General\listaTareas.js" />
     <Content Include="assets\scripts\page\Seguridad\Menu.js" />
     <Content Include="assets\scripts\page\Seguridad\Perfil.js" />
@@ -469,6 +470,7 @@
     <Content Include="Reporte\OC\reportoc_admin.pdf" />
     <Content Include="Reporte\OC\reportoc_admin.xlsx" />
     <Content Include="Reporte\Venta\excel\Tarea.xlsx" />
+    <Content Include="Views\General\ListTareas2.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\SIS.Business\SIS.Business.csproj">

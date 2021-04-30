@@ -21,7 +21,10 @@ namespace SIS.Principal.Controllers
         {
             return View();
         }
-
+        public ActionResult ListTareas2()
+        {
+            return View();
+        }
         [HttpPost]
         public void ListaTareas(string stado, string etiqueta, string tarea, string label, string FechaIncio, string FechaFin, int numPag, int allReg, int Cant)
         {
@@ -42,6 +45,25 @@ namespace SIS.Principal.Controllers
             }
         }
 
+        [HttpPost]
+        public void ListaTareasdos(string stado, string etiqueta, string tarea, string label, string FechaIncio, string FechaFin, int numPag, int allReg, int Cant)
+        {
+            try
+            {
+
+                Utils.Write(
+                    ResponseType.JSON,
+                    General.ListaTareados(stado, etiqueta, tarea, label, FechaIncio, FechaFin, numPag, allReg, Cant)
+                );
+            }
+            catch (Exception Exception)
+            {
+                Utils.Write(
+                    ResponseType.JSON,
+                    "{ Code: 1, ErrorMessage: \"" + Exception.Message + "\" }"
+                );
+            }
+        }
         #region Reporte Excel 
         public ActionResult ReporteExcel(string stado, string etiqueta, string tarea, string label, string FechaIncio, string FechaFin, int numPag, int allReg, int Cant)
         {
