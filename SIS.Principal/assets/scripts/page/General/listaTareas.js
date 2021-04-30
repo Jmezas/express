@@ -184,8 +184,9 @@ function ListaGeneral() {
                         '<tr data-id="' + item["intcheck"] + '">' +
                         '<td>' + item["item"] + '</td>' +
                         '<td>' + item["empleado"] + '</td>' +
-                        '<td>' + item["etiqueta"] + '</td>' +
                         '<td>' + item["stado"] + '</td>' +
+                        '<td>' + item["etiqueta"] + '</td>' +
+               
 
                         '<td>' + item["tarea"] + '</td>' +
                         '<td>' + item["label"] + '</td>' +
