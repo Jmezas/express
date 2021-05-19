@@ -348,5 +348,32 @@ namespace SIS.Data
             }
 
         }
+        public string Eliminar(int Id, int IdFlag, string Usuario)
+        {
+            using (var Connection = GetConnection(BaseDeDatos))
+            {
+                try
+                {
+                    Connection.Open();
+                    SetQuery("LOG_EliminarGeneral");
+                    CreateHelper(Connection);
+                    AddInParameter("@Id", Id);
+                    AddInParameter("@IdFlag", IdFlag);
+                    AddInParameter("@Usuario", Usuario);
+                    AddOutParameter("@Mensaje", (DbType)SqlDbType.VarChar);
+                    ExecuteQuery();
+                    var smensaje = GetOutput("@Mensaje").ToString();
+                    return GetOutput("@Mensaje").ToString();
+                }
+                catch (Exception Exception)
+                {
+                    throw Exception;
+                }
+                finally
+                {
+                    Connection.Close();
+                }
+            }
+        }
     }
 }

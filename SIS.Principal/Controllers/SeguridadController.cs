@@ -257,6 +257,23 @@ namespace SIS.Principal.Controllers
         }
 
         [HttpPost]
+        public void Eliminar(int Id, int IdFlag)
+        {
+            try
+            {
+                var Usuario = Authentication.UserLogued.Usuario;
+                Utils.WriteMessage(BUsuario.Eliminar(Id, IdFlag, Usuario));
+            }
+            catch (Exception Exception)
+            {
+                Utils.Write(
+                    ResponseType.JSON,
+                    "{ Code: 2, ErrorMessage: \"" + Exception.Message + "\" }"
+                );
+            }
+        }
+
+        [HttpPost]
         public void Insertar_Perfil(EPerfil oDato, string Usuario)
         {
             try

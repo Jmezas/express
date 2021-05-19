@@ -397,7 +397,7 @@ namespace SIS.Data
                             obj.llegada = Reader["llegada"].ToString();
                             obj.duracion = Reader["duracion"].ToString();
                             obj.empleado = Reader["empleado"].ToString();
-                           
+                            obj.imgen = Reader["download_url"].ToString();
                             obj.total = int.Parse(Reader["Total"].ToString());
                             obj.totalPagina = int.Parse(Reader["totalPaginas"].ToString()); 
                             oDatos.Add(obj);
@@ -455,6 +455,7 @@ namespace SIS.Data
                             obj.llegada = Reader["llegada"].ToString();
                             obj.duracion = Reader["duracion"].ToString();
                             obj.empleado = Reader["empleado"].ToString();
+                            obj.imgen = Reader["download_url"].ToString();
 
                             obj.total = int.Parse(Reader["Total"].ToString());
                             obj.totalPagina = int.Parse(Reader["totalPaginas"].ToString());

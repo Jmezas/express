@@ -156,7 +156,7 @@ $(function () {
         var data = new FormData($('#frm-adjuntar')[0]);//el fromData
         var $form = $("#ModalNuevo");
         var oDatos = General.Utils.SerializeForm($form);
-        if ($("#lstPerfil").val() == 0 || $("#lstDocumento").val() == 0 || $("#lstsucursal").val()==0) {
+        if ($("#lstPerfil").val() == 0 || $("#lstDocumento").val() == 0) {
             General.Utils.ShowMessage(TypeMessage.Error, 'debe de seleccionar los campos obligatorio');
 
         } else {
@@ -246,7 +246,7 @@ $(function () {
                 $.ajax({
                     async: true,
                     type: 'post',
-                    url: General.Utils.ContextPath('Mantenimiento/Eliminar'),
+                    url: General.Utils.ContextPath('seguridad/Eliminar'),
                     dataType: 'json',
                     data: { Id: $("#hdfId").val(), IdFlag: 10 },
                     success: function (response) {

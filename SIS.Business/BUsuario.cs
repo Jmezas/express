@@ -101,5 +101,16 @@ namespace SIS.Business
                 throw Exception;
             }
         }
+        public string Eliminar(int Id, int IdFlag, string Usuario)
+        {
+            try
+            {
+                return Data.Eliminar(Id, IdFlag, Usuario);
+            }
+            catch (Exception Exception)
+            {
+                throw Exception;
+            }
+        }
     }
 }

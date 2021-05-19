@@ -102,7 +102,7 @@ $(function () {
             AllReg = $("#IdTotal").is(':checked') === true ? 0 : 1;
         CantiFill = $("#TotalReg").val();
 
-        window.location.href = General.Utils.ContextPath('General/ReporteExcel?stado=' + stado + "&id=" + id +  "&etiqueta=" + etiqueta + "&tarea=" + tarea + "&label=" + label +
+        window.location.href = General.Utils.ContextPath('General/ReporteExcel?stado=' + stado + "&id=" + id + "&etiqueta=" + etiqueta + "&tarea=" + tarea + "&label=" + label +
             "&FechaIncio=" + FechaInicio + "&FechaFin=" + FechaFin +
             "&numPag=" + numPaginas + "&allReg=" + AllReg + "&Cant=" + CantiFill);
     });
@@ -172,7 +172,7 @@ function ListaGeneral() {
         type: 'post',
         url: General.Utils.ContextPath('General/ListaTareas'),
         dataType: 'json',
-        data: { stado: stado,id:id, etiqueta: etiqueta, tarea: tarea, label: label, FechaIncio: FechaInicio, FechaFin: FechaFin, numPag: numPaginas, allReg: AllReg, Cant: 10 },
+        data: { stado: stado, id: id, etiqueta: etiqueta, tarea: tarea, label: label, FechaIncio: FechaInicio, FechaFin: FechaFin, numPag: numPaginas, allReg: AllReg, Cant: 10 },
         success: function (response) {
 
             var $tb = $("#tbVenta");
@@ -193,7 +193,7 @@ function ListaGeneral() {
                         '<td>' + item["empleado"] + '</td>' +
                         '<td>' + item["stado"] + '</td>' +
                         '<td>' + item["etiqueta"] + '</td>' +
-               
+
 
                         '<td>' + item["tarea"] + '</td>' +
                         '<td>' + item["label"] + '</td>' +
@@ -204,6 +204,8 @@ function ListaGeneral() {
                         '<td>' + (item["fin"]) + '</td>' +
                         '<td>' + (item["llegada"]) + '</td>' +
                         '<td>' + (item["duracion"]) + '</td>' +
+                        '<td>' + '<img src="' + item["imgen"] + '" width="100" height="100">' + '</td>' +
+
                         '</tr>'
                     );
                 });

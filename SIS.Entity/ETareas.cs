@@ -33,5 +33,6 @@ namespace SIS.Entity
         public string duracion { get; set; }
         public string etiqueta { get; set; } 
         public string empleado { get; set; } 
+        public string imgen { get; set; } 
     }
 }
