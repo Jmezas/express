@@ -203,7 +203,7 @@ function ListaGeneral() {
                         '<td>' + (item["fin"]) + '</td>' +
                         '<td>' + (item["llegada"]) + '</td>' +
                         '<td>' + (item["duracion"]) + '</td>' +
-                        '<td>' + '<img src="' + item["imgen"] + '" width="100" height="100">' + '</td>' +
+                        '<td>' + '<a href="' + item["imgen"] + '" > ' + '<img src="' + item["imgen"] + '" width="100" height="100">' + '<a/>' + '</td>' +
                         '</tr>'
                     );
                 });

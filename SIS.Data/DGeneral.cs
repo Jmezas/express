@@ -372,8 +372,8 @@ namespace SIS.Data
                     AddInParameter("@etiqueta", etiqueta);
                     AddInParameter("@tarea", tarea);
                     AddInParameter("@label", label); 
-                    AddInParameter("@FechaInicio", FechaIncio);
-                    AddInParameter("@FechaFin", FechaFin);
+                    AddInParameter("@FechaInicio",(FechaIncio));
+                    AddInParameter("@FechaFin", (FechaFin));
                     AddInParameter("@numPagina", numPag);
                     AddInParameter("@allReg", allReg);
                     AddInParameter("@iCantFilas", Cant);
